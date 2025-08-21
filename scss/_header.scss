@@ -1,0 +1,113 @@
+.header {
+  color: #ffffff;
+  position: absolute;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 23px;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &__collection {
+    display: flex;
+    gap: 27px;
+    color: #8b8e99;
+    font-weight: 500;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 16px;
+  }
+
+  .fa-cart-shopping {
+    position: relative;
+  }
+  .fa-cart-shopping::after {
+    content: "1";
+    position: absolute;
+    top: -9px;
+    right: -2px;
+    background: #3858d6;
+    color: white;
+    font-size: 10px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background: #0b0b0b;
+    color: white;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: 0.3s;
+    z-index: 1000;
+
+    a {
+      color: #8b8e99;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.2s;
+      &:hover {
+        color: white;
+      }
+    }
+
+    &.active {
+      right: 0; // ✅ ko‘rinadi
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .navbar {
+    &__collection {
+      display: none;
+    }
+
+    &__hamburger {
+      display: block;
+    }
+
+    &__icons {
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      background: black;
+      padding: 8px 16px;
+
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+    }
+  }
+}
